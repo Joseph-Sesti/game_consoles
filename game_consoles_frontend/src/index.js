@@ -1,4 +1,4 @@
-fetch('localhost:3000/consoles')
+fetch('https://localhost:3000/consoles')
 .then(function(response) {
   return response.json();
 })
