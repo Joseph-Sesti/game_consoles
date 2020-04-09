@@ -547,3 +547,15 @@ Processing by ConsolesController#index as */*
 Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.4ms | Allocations: 2927)
 
 
+Started GET "/consoles" for ::1 at 2020-04-09 17:44:30 -0500
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (12.0ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 135ms (Views: 94.3ms | ActiveRecord: 22.7ms | Allocations: 2953)
+
+
