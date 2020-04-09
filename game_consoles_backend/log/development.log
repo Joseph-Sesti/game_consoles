@@ -489,3 +489,38 @@ Processing by ConsolesController#index as */*
 Completed 200 OK in 37ms (Views: 21.7ms | ActiveRecord: 1.9ms | Allocations: 11329)
 
 
+Started GET "/consoles" for ::1 at 2020-04-09 12:50:40 -0500
+Started GET "/consoles" for ::1 at 2020-04-09 12:50:59 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (14.6ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (13.0ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 910ms (Views: 465.4ms | ActiveRecord: 27.8ms | Allocations: 8053)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 53ms (Views: 46.2ms | ActiveRecord: 2.7ms | Allocations: 8768)
+
+
+Started GET "/consoles" for ::1 at 2020-04-09 12:51:11 -0500
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.5ms | Allocations: 2945)
+
+
