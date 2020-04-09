@@ -283,3 +283,76 @@ Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 
 NameError (uninitialized constant ConsolesController::ConsoleSerializer):
   
 app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/consoles" for ::1 at 2020-04-08 17:19:37 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1583)
+
+
+  
+NameError (uninitialized constant ConsolesController::ConsoleSerializer):
+  
+app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mConsole Load (0.4ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" ORDER BY "consoles"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateConsoles (20200408231505)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "consoles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "manufacturer" varchar, "release_year" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (12.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200408231505"]]
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (5.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-08 23:20:01.974512"], ["updated_at", "2020-04-08 23:20:01.974512"]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/consoles" for ::1 at 2020-04-08 18:21:25 -0500
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ConsolesController#index as HTML
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms | Allocations: 2644)
+
+
+  
+NameError (uninitialized constant ConsoleSerializer::FastJsonapi):
+  
+app/serializers/console_serializer.rb:2:in `<class:ConsoleSerializer>'
+app/serializers/console_serializer.rb:1:in `<main>'
+app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/consoles" for ::1 at 2020-04-08 18:56:25 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2274)
+
+
+  
+NameError (uninitialized constant ConsoleSerializer::FastJsonapi):
+  
+app/serializers/console_serializer.rb:2:in `<class:ConsoleSerializer>'
+app/serializers/console_serializer.rb:1:in `<main>'
+app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/consoles" for ::1 at 2020-04-08 19:02:46 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ConsolesController#index as HTML
+  [1m[36mConsole Load (0.3ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms | Allocations: 3241)
+
+
+  [1m[36mCACHE Console Load (0.0ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_serialized_json' for #<ConsoleSerializer:0x0000562c80562b08>):
+  
+app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/consoles" for ::1 at 2020-04-08 19:03:00 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as HTML
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.7ms | Allocations: 2416)
+
+
