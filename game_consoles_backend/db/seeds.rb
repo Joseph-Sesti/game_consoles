@@ -5,5 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-consoles = Console.create([{ name: "Gamecube"}, {name: 'PlayStation 2'}])
-Videogame.create(title: 'Super Mario Sunshine', console: consoles.first)
+consoles = Console.create([{name: "NES"}, {name: "SNES"}, {name: "N64"}, {name: "Gamecube"}, {name: "Wii"}, {name: "Wii U"}, {name: "Switch"}, {name: 'Gameboy'}, {name: 'Gameboy Advance'}, {name: 'DS'}, {name: '3DS'}, {name: "PlayStation"}, {name: 'PlayStation 2'}, {name: "PlayStation 3"}, {name: 'PlayStation 4'}, {name: 'PlayStation Portable'}, {name: 'PlayStation Vita'}])
