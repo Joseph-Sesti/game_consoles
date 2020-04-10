@@ -708,3 +708,159 @@ Migrating to RemoveDeveloperAndReleaseYearFromVideogames (20200410024138)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mConsole Create (18.4ms)[0m  [1m[32mINSERT INTO "consoles" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "PlayStation Vita"], ["created_at", "2020-04-10 03:02:52.855377"], ["updated_at", "2020-04-10 03:02:52.855377"]]
   [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-04-09 22:07:28 -0500
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/joseph/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/joseph/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 35.2ms | Allocations: 314)
+Completed 200 OK in 79ms (Views: 39.8ms | ActiveRecord: 0.0ms | Allocations: 1629)
+
+
+Started GET "/consoles" for ::1 at 2020-04-09 22:08:10 -0500
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (7.7ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 8.3ms | Allocations: 6694)
+
+
+  
+NoMethodError (undefined method `manufacturer' for #<Console:0x00007f9484924df0>):
+  
+app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/" for ::1 at 2020-04-09 22:08:32 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/joseph/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/joseph/.rvm/gems/ruby-2.6.3/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 99.2ms | Allocations: 195)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.0ms | Allocations: 732)
+
+
+Started GET "/consoles" for ::1 at 2020-04-09 22:08:38 -0500
+Processing by ConsolesController#index as HTML
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.2ms | Allocations: 2427)
+
+
+  
+NoMethodError (undefined method `manufacturer' for #<Console:0x00005562c40269e0>):
+  
+app/controllers/consoles_controller.rb:9:in `index'
+Started GET "/favicon.ico" for ::1 at 2020-04-09 22:08:40 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/consoles" for ::1 at 2020-04-09 22:09:03 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ConsolesController#index as HTML
+  [1m[36mConsole Load (29.1ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (9.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 3]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 4]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 5]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 6]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 7]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 8]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 9]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 10]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 11]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 12]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 13]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 14]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 15]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 16]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 17]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 18]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 19]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 223ms (Views: 114.4ms | ActiveRecord: 44.4ms | Allocations: 27288)
+
+
+Started GET "/consoles" for ::1 at 2020-04-09 22:09:14 -0500
+Processing by ConsolesController#index as */*
+  [1m[36mConsole Load (0.2ms)[0m  [1m[34mSELECT "consoles".* FROM "consoles"[0m
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 1]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 2]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 3]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 4]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 5]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 6]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 7]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 8]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 9]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 10]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 11]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 12]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 13]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 14]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 15]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 16]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 17]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 18]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "videogames"."id" FROM "videogames" WHERE "videogames"."console_id" = ?[0m  [["console_id", 19]]
+  ↳ app/controllers/consoles_controller.rb:9:in `index'
+Completed 200 OK in 152ms (Views: 143.7ms | ActiveRecord: 8.2ms | Allocations: 20604)
+
+

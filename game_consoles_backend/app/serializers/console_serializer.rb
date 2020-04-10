@@ -1,5 +1,5 @@
 class ConsoleSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :name, :manufacturer, :release_year
+  attributes :id, :name
   has_many :videogames
 end
