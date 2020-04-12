@@ -12,7 +12,14 @@ function getConsoles() {
   .then(function(response) {
     return response.json();
   })
-  .then(function(json) {
-    console.log(json)
-  });
+  .then(consoles => {
+    consoles['data'].forEach(console => {
+      let div = document.createElement('div')
+      let consoleList = document.createTextNode(`${console.attributes.name}`)
+      let input = document.createElement('input')
+      document.getElementById("consoles").appendChild(div)
+      div.appendChild(consoleList)
+      div.appendChild(input)
+    })
+  })
 }
