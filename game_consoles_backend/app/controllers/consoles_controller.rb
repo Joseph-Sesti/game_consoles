@@ -8,12 +8,4 @@ class ConsolesController < ApplicationController
     consoles = Console.all
     render json: ConsoleSerializer.new(consoles)
   end
-
-  def create
-    if console.uniq
-      Console.create
-    else
-      flash.alert "That console has already been created."
-    end
-  end
 end
