@@ -1,5 +1,5 @@
-class Consoles {
-  constructor(console)
-  this.name = name
-  this.videogames = videogames
+class Console {
+  constructor(name) {
+    this.name = name
+  }
 }

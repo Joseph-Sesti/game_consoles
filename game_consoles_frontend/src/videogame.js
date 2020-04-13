@@ -1,4 +1,5 @@
 class Videogame {
-  constructor(videogame)
-  this.title = title
+  constructor(videogame) {
+    this.title = title
+  }
 }
