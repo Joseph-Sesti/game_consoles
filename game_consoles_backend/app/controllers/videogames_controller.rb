@@ -1,6 +1,6 @@
 class VideogamesController < ApplicationController
   def show
-    videogame = Videogame.finsd(params[:id])
+    videogame = Videogame.find(params[:id])
     render json: VideogameSerializer.new(videogame)
   end
 
@@ -10,10 +10,8 @@ class VideogamesController < ApplicationController
   end
 
   def create
-    if videogame.uniq
-      Videogame.create
-    else
-      flash.alert "That videogame has already been created."
-    end
+    # debugger
+    videogame = Videogame.create(params[:title])
+    render json: VideogameSerializer.new(videogame)
   end
 end
