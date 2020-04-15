@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   getConsoles()
 })
 
+
+
 function getConsoles() {
   fetch(CONSOLES_URL)
   .then(function(response) {
@@ -15,36 +17,40 @@ function getConsoles() {
     consoles['data'].forEach(console => {
      let newConsole = new Console(console)
       let div = document.createElement('div')
-      let consoleList = document.createTextNode(`${newConsole}`)
+      let consoleList = document.createTextNode(`${newConsole.name.attributes
+      .name}`)
       let input = document.createElement('input')
       let submit = document.createElement('BUTTON')
+      submit.id = console.id
       submit.innerHTML = "Submit"
       document.getElementById("consoles").appendChild(div)
       div.appendChild(consoleList)
       div.appendChild(input)
       div.appendChild(submit)
       submit.addEventListener('click', function(event) {
-        createVideogame()
+        event.preventDefault()
+        createVideogame(input.value, console.id)
       })
     })
   })
-}
 
-function createVideogame() {
-  let videogame = {videogame: 'title'}
-  let newVideogame = new Videogame(videogame)
-  fetch(VIDEOGAMES_URL, {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(videogame)
-  })
-  .then((response) => response.json())
-  .then((videogame) => {
-    console.log(`${newVideogame}`)
-  })
+  function createVideogame(title, console_id) {
+    let data = {videogame: title, console_id: console_id}
+    fetch(VIDEOGAMES_URL, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      let newVideogame = new Videogame(title, console_id)
+      console.log(newVideogame)
+    });
+  }
 }
 
 
