@@ -21,21 +21,23 @@ function getConsoles() {
       .name}`)
       let input = document.createElement('input')
       let submit = document.createElement('BUTTON')
-      submit.id = console.id
+      let li = document.createElement('li')
       submit.innerHTML = "Submit"
       document.getElementById("consoles").appendChild(div)
       div.appendChild(consoleList)
       div.appendChild(input)
       div.appendChild(submit)
+      div.appendChild(li)
       submit.addEventListener('click', function(event) {
         event.preventDefault()
         createVideogame(input.value, console.id)
+        li.innerHTML = input.value
       })
     })
   })
 
   function createVideogame(title, console_id) {
-    let data = {videogame: title, console_id: console_id}
+    let data = {title: title, console_id: console_id}
     fetch(VIDEOGAMES_URL, {
       method: 'POST',
       headers: {
