@@ -14,9 +14,8 @@ class VideogamesController < ApplicationController
   end
 
   def create
-    console = Console.find_by(id: params[:console_id])
-    # videogame = Videogame.create(title: params[:title])
-    videogame = Videogame.create(title: params[:videogame], console: params[:console_name])
+    # console = Console.find_by(id: params[:console_id])
+    videogame = Videogame.create(title: params[:videogame], console_id: params[:console_id])
     if videogame.save
       # console.videogames << videogame
       render json: VideogameSerializer.new(videogame)

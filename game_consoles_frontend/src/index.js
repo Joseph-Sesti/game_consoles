@@ -34,7 +34,7 @@ function getConsoles() {
   })
 
   function createVideogame(title, console_id) {
-    let data = {title: title, console_id: console_id}
+    let data = {videogame: title, console_id: console_id}
     fetch(VIDEOGAMES_URL, {
       method: 'POST',
       headers: {
@@ -45,7 +45,9 @@ function getConsoles() {
     })
     .then(response => response.json())
     .then(json => {
-      let newVideogame = new Videogame(title, console_id)
+      console.log(json)
+      let newVideogame = new Videogame(json.data.attributes.id, json.data.attributes.title, json.data.attributes.console_id)
+      console.log(newVideogame)
       appendVideogame(newVideogame)
     });
   }

@@ -1,5 +1,6 @@
 class Videogame {
-  constructor(title, console_id) {
+  constructor(id, title, console_id) {
+    this.id = id
     this.title = title
     this.console_id = console_id
   }
