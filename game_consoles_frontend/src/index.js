@@ -56,18 +56,9 @@ function getConsoles() {
 function appendVideogame(newVideogame) {
   let videogames = document.getElementsByClassName('videogames-container')
   let li = document.createElement('li')
+  let deleteButton = document.createElement('BUTTON')
+  deleteButton.innerHTML = 'Delete'
   li.setAttribute('data-id', newVideogame.id)
   li.innerHTML = newVideogame.title
-  videogames[0].append(li)
+  videogames[0].append(li, deleteButton)
 }
-
-//user performs an action on the DOM
-//this triggers an eventlistener
-//which triggers a function which calls fetch
-//fetch talks to a ruby controller action depending on the route passed to it,
-//and since you configured it to do so, renders json
-//that is received back on the front in your JS as a promise, or, a response from
-//your fetch
-//you handle that response with a couple.then's
-//in the second then, or in a function that you call there, a new JS model object
-//is created by invoking the constructor function that you wrote (new User(userJsonData, for example.)
