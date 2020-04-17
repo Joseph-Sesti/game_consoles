@@ -21,17 +21,14 @@ function getConsoles() {
       .name}`)
       let input = document.createElement('input')
       let submit = document.createElement('BUTTON')
-      let li = document.createElement('li')
       submit.innerHTML = "Submit"
       document.getElementById("consoles").appendChild(div)
       div.appendChild(consoleList)
       div.appendChild(input)
       div.appendChild(submit)
-      div.appendChild(li)
       submit.addEventListener('click', function(event) {
         event.preventDefault()
         createVideogame(input.value, console.id)
-        li.innerHTML = input.value
       })
     })
   })
@@ -48,14 +45,19 @@ function getConsoles() {
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json)
       let newVideogame = new Videogame(title, console_id)
-      console.log(newVideogame)
+      appendVideogame(newVideogame)
     });
   }
 }
 
-
+function appendVideogame(newVideogame) {
+  let videogames = document.getElementsByClassName('videogames-container')
+  let li = document.createElement('li')
+  li.setAttribute('data-id', newVideogame.id)
+  li.innerHTML = newVideogame.title
+  videogames[0].append(li)
+}
 
 //user performs an action on the DOM
 //this triggers an eventlistener
