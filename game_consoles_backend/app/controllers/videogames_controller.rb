@@ -23,4 +23,9 @@ class VideogamesController < ApplicationController
       render json: {message: 'Error! Videogame could not be created in controller.'}
     end
   end
+
+  def delete
+    videogame = Videogame.find(params[:id])
+    videogame.destroy
+  end
 end

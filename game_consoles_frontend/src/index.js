@@ -15,7 +15,7 @@ function getConsoles() {
   })
   .then(consoles => {
     consoles['data'].forEach(console => {
-     let newConsole = new Console(console)
+      let newConsole = new Console(console)
       let div = document.createElement('div')
       let consoleList = document.createTextNode(`${newConsole.name.attributes
       .name}`)
@@ -58,7 +58,21 @@ function appendVideogame(newVideogame) {
   let li = document.createElement('li')
   let deleteButton = document.createElement('BUTTON')
   deleteButton.innerHTML = 'Delete'
-  li.setAttribute('data-id', newVideogame.id)
+  deleteButton.addEventListener('click', function(event) {
+    event.preventDefault()
+    deleteVideogame()
+  })
   li.innerHTML = newVideogame.title
   videogames[0].append(li, deleteButton)
+  console.videogames.forEach(videogame)
+  // append videogame to console based on the games console id
+}
+
+function deleteVideogame(videogame_id) {
+  fetch(`http://localhost:3000/videogames/delete/${videogame.id}`, {
+    method: 'DELETE'
+  }).then(response =>
+  response.json().then(json => {
+    return json;
+  }))
 }
