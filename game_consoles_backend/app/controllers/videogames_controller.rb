@@ -24,8 +24,8 @@ class VideogamesController < ApplicationController
     end
   end
 
-  def delete
-    videogame = Videogame.find(params[:id])
+  def destroy
+    videogame = Videogame.find_by(id: params[:id])
     videogame.destroy
   end
 end

@@ -60,7 +60,7 @@ function appendVideogame(newVideogame) {
   deleteButton.innerHTML = 'Delete'
   deleteButton.addEventListener('click', function(event) {
     event.preventDefault()
-    deleteVideogame()
+    deleteVideogame(newVideogame)
   })
   li.innerHTML = newVideogame.title
   videogames[0].append(li, deleteButton)
@@ -68,11 +68,21 @@ function appendVideogame(newVideogame) {
   // append videogame to console based on the games console id
 }
 
-function deleteVideogame(videogame_id) {
-  fetch(`http://localhost:3000/videogames/delete/${videogame.id}`, {
-    method: 'DELETE'
-  }).then(response =>
-  response.json().then(json => {
-    return json;
-  }))
+function deleteVideogame(videogame) {
+  fetch(`${VIDEOGAMES_URL}/${videogame.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({'id': videogame.id})
+  })
+  event.target.parentElement.remove()
 }
+
+// function deleteVideogame(id) {
+//   fetch(`${VIDEOGAMES_URL}/${videogame.id}`, videogame,{
+//     method: 'DELETE'
+//   })
+//   event.target.parentElement.remove()
+// }
