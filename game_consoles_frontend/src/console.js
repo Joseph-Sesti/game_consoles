@@ -1,6 +1,7 @@
 class Console {
-  constructor(name) {
+  constructor({name, id, videogames}) {
     this.name = name
-    // this.id = id
+    this.id = id
+    this.videogames = videogames
   }
 }

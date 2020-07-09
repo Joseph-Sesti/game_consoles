@@ -14,12 +14,14 @@ function getConsoles() {
     return response.json();
   })
   .then(consoles => {
-    consoles['data'].forEach(console => {
-      let newConsole = new Console(console)
-      let div = document.createElement('div')
-      let consoleList = document.createTextNode(`${newConsole.name.attributes
-      .name}`)
+    consoles['data'].forEach(consol => {
+      // console.log('data from fetch', console)
+      let newConsole = new Console(consol.attributes)
+      let div = document.getElementById(`${newConsole.id}`)
+      let consoleList = document.createTextNode(`${newConsole.name}`)
       let input = document.createElement('input')
+      let hiddenInput = document.createElement('input')
+      hiddenInput.type = 'hidden'
       let submit = document.createElement('BUTTON')
       submit.innerHTML = "Submit"
       document.getElementById("consoles").appendChild(div)
@@ -28,7 +30,8 @@ function getConsoles() {
       div.appendChild(submit)
       submit.addEventListener('click', function(event) {
         event.preventDefault()
-        createVideogame(input.value, console.id)
+        console.log(event.target)
+        createVideogame(input.value, consol.id)
       })
     })
   })
@@ -45,7 +48,7 @@ function getConsoles() {
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json)
+      console.log('response', json)
       let newVideogame = new Videogame(json.data.attributes.id, json.data.attributes.title, json.data.attributes.console_id)
       console.log(newVideogame)
       appendVideogame(newVideogame)
@@ -54,8 +57,10 @@ function getConsoles() {
 }
 
 function appendVideogame(newVideogame) {
-  let videogames = document.getElementsByClassName('videogames-container')
+  let console = document.getElementById(`${newVideogame.console_id}`)
   let li = document.createElement('li')
+  li.setAttribute('data-id', newVideogame.id)
+  li.setAttribute('style', "list-style-type:none")
   let deleteButton = document.createElement('BUTTON')
   deleteButton.innerHTML = 'Delete'
   deleteButton.addEventListener('click', function(event) {
@@ -63,8 +68,11 @@ function appendVideogame(newVideogame) {
     deleteVideogame(newVideogame)
   })
   li.innerHTML = newVideogame.title
-  videogames[0].append(li, deleteButton)
-  console.videogames.forEach(videogame)
+  console.append(li, deleteButton)
+  Array.from(consoles.videogames).forEach(newVideogame)
+    console.append(videogame)
+
+
   // append videogame to console based on the games console id
 }
 
@@ -79,10 +87,3 @@ function deleteVideogame(videogame) {
   })
   event.target.parentElement.remove()
 }
-
-// function deleteVideogame(id) {
-//   fetch(`${VIDEOGAMES_URL}/${videogame.id}`, videogame,{
-//     method: 'DELETE'
-//   })
-//   event.target.parentElement.remove()
-// }
