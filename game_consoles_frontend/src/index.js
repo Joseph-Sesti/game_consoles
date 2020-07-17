@@ -15,7 +15,6 @@ function getConsoles() {
   })
   .then(consoles => {
     consoles['data'].forEach(consol => {
-      // console.log('data from fetch', console)
       let newConsole = new Console(consol.attributes)
       let div = document.getElementById(`${newConsole.id}`)
       let consoleList = document.createTextNode(`${newConsole.name}`)
@@ -35,7 +34,9 @@ function getConsoles() {
       })
     })
   })
+  function appendConsoles() {
 
+  }
   function createVideogame(title, console_id) {
     let data = {videogame: title, console_id: console_id}
     fetch(VIDEOGAMES_URL, {
@@ -68,12 +69,10 @@ function appendVideogame(newVideogame) {
     deleteVideogame(newVideogame)
   })
   li.innerHTML = newVideogame.title
-  console.append(li, deleteButton)
+  li.appendChild(deleteButton)
+  console.appendChild(li)
   Array.from(consoles.videogames).forEach(newVideogame)
     console.append(videogame)
-
-
-  // append videogame to console based on the games console id
 }
 
 function deleteVideogame(videogame) {
@@ -85,5 +84,6 @@ function deleteVideogame(videogame) {
     },
     body: JSON.stringify({'id': videogame.id})
   })
-  event.target.parentElement.remove()
+  const title = document.querySelector(`[data-id="${videogame.id}"]`)
+  title.remove()
 }
