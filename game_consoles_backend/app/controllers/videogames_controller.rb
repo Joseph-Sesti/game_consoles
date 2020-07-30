@@ -9,13 +9,9 @@ class VideogamesController < ApplicationController
     render json: VideogameSerializer.new(videogames)
   end
 
-  def new
-    videogame = console.videogame.build
-  end
-
   def create
     # console = Console.find_by(id: params[:console_id])
-    videogame = Videogame.create(title: params[:videogame], console_id: params[:console_id])
+    videogame = Videogame.new(videogame_params)
     if videogame.save
       # console.videogames << videogame
       render json: VideogameSerializer.new(videogame)
@@ -27,5 +23,11 @@ class VideogamesController < ApplicationController
   def destroy
     videogame = Videogame.find_by(id: params[:id])
     videogame.destroy
+  end
+
+  private
+
+  def videogame_params
+    params.require(:videogame).permit(:title, :console_id)
   end
 end
