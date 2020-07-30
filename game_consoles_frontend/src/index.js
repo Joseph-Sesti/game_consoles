@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   getConsoles()
 })
 
-
-
 function getConsoles() {
   fetch(CONSOLES_URL)
   .then(function(response) {
@@ -16,27 +14,11 @@ function getConsoles() {
   .then(consoles => {
     consoles['data'].forEach(consol => {
       let newConsole = new Console(consol.attributes)
-      let div = document.getElementById(`${newConsole.id}`)
-      let consoleList = document.createTextNode(`${newConsole.name}`)
-      let input = document.createElement('input')
-      let hiddenInput = document.createElement('input')
-      hiddenInput.type = 'hidden'
-      let submit = document.createElement('BUTTON')
-      submit.innerHTML = "Submit"
-      document.getElementById("consoles").appendChild(div)
-      div.appendChild(consoleList)
-      div.appendChild(input)
-      div.appendChild(submit)
-      submit.addEventListener('click', function(event) {
-        event.preventDefault()
-        console.log(event.target)
-        createVideogame(input.value, consol.id)
-      })
+      newConsole.append()
     })
   })
-  function appendConsoles() {
+}
 
-  }
   function createVideogame(title, console_id) {
     let data = {videogame: title, console_id: console_id}
     fetch(VIDEOGAMES_URL, {
@@ -53,9 +35,9 @@ function getConsoles() {
       let newVideogame = new Videogame(json.data.attributes.id, json.data.attributes.title, json.data.attributes.console_id)
       console.log(newVideogame)
       appendVideogame(newVideogame)
+      // newVideogame.append()
     });
   }
-}
 
 function appendVideogame(newVideogame) {
   let console = document.getElementById(`${newVideogame.console_id}`)
@@ -70,9 +52,7 @@ function appendVideogame(newVideogame) {
   })
   li.innerHTML = newVideogame.title
   li.appendChild(deleteButton)
-  console.appendChild(li)
-  Array.from(consoles.videogames).forEach(newVideogame)
-    console.append(videogame)
+  console.appendChild(li, deleteButton)
 }
 
 function deleteVideogame(videogame) {
